@@ -1,0 +1,8 @@
+node_modules
+dist
+__pycache__
+*.pyc
+.DS_Store
+extracted_dataset
+dataset_output/*.csv
+dataset_output/*.csv.gz

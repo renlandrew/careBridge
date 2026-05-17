@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/write-up",
+      "destination": "/index.html"
+    }
+  ]
+}

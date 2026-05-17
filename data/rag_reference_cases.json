@@ -1,0 +1,63 @@
+{
+  "name": "CareBridge CTAS* RAG Reference Cases",
+  "version": "0.1.0",
+  "purpose": "Small auditable demo index for CTAS* historical-case confirmation in the nurse portal.",
+  "importantBoundary": "These records are not used to make the final triage decision. Gemma 4 extracts structured facts, the CTAS-aligned rules assign the level, and this index retrieves similar historical cases for nurse-facing confirmation.",
+  "sourceDataset": {
+    "title": "Emergency Service - Triage Application",
+    "publisher": "Kaggle community dataset",
+    "url": "https://www.kaggle.com/datasets/ilkeryildiz/emergency-service-triage-application",
+    "labelField": "true KTAS / expert KTAS",
+    "whyUsableHere": "KTAS is a CTAS-derived five-level emergency triage scale. We use it as a public proxy benchmark and historical similarity index, not as official Canadian CTAS training data."
+  },
+  "cases": [
+    {
+      "id": "KTAS-1187",
+      "sourceScale": "KTAS",
+      "ctas": 2,
+      "complaint": "Chest pain",
+      "symptoms": ["Chest", "Pressure", "Pressure spreading to arm or jaw", "Difficulty breathing", "High Blood Pressure"],
+      "summary": "Adult chest pressure with arm radiation and breathing concern was treated as emergent."
+    },
+    {
+      "id": "KTAS-2044",
+      "sourceScale": "KTAS",
+      "ctas": 2,
+      "complaint": "Neurologic change",
+      "symptoms": ["Head", "Dizziness or faint feeling", "Loss of consciousness", "Suddenly"],
+      "summary": "Loss of consciousness or acute neurologic change was escalated for rapid nurse review."
+    },
+    {
+      "id": "KTAS-0772",
+      "sourceScale": "KTAS",
+      "ctas": 3,
+      "complaint": "Shortness of breath",
+      "symptoms": ["Chest", "Burning", "Pain with deep breathing", "Difficulty breathing", "Asthma"],
+      "summary": "Breathing difficulty with asthma history aligned with urgent reassessment."
+    },
+    {
+      "id": "KTAS-3019",
+      "sourceScale": "KTAS",
+      "ctas": 3,
+      "complaint": "Abdominal pain",
+      "symptoms": ["Abdomen", "Back", "Cramping", "Sharp pain in one spot", "Heart Disease"],
+      "summary": "Moderate abdominal pain with higher-risk history was historically triaged as urgent."
+    },
+    {
+      "id": "KTAS-4128",
+      "sourceScale": "KTAS",
+      "ctas": 4,
+      "complaint": "Limb injury",
+      "symptoms": ["Limbs", "Sharp", "Cannot put weight on it", "After an injury"],
+      "summary": "Stable isolated limb injury without red flags matched a less-urgent pathway."
+    },
+    {
+      "id": "KTAS-5180",
+      "sourceScale": "KTAS",
+      "ctas": 5,
+      "complaint": "Minor skin irritation",
+      "symptoms": ["Skin", "Itching or irritation", "Gradually", "No difficulty breathing"],
+      "summary": "Minor skin symptoms without systemic red flags matched non-urgent historical cases."
+    }
+  ]
+}

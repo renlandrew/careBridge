@@ -1,0 +1,10 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+accelerate>=1.8.0
+soundfile>=0.12.1
+librosa>=0.10.2
+sentencepiece>=0.2.0
+protobuf>=5.29.0
+huggingface_hub>=1.1.0
+https://github.com/huggingface/transformers/archive/refs/heads/main.zip
+

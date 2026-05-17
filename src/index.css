@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  color: #0f172a;
+  background:
+    radial-gradient(circle at top, rgba(239, 68, 68, 0.16), transparent 34%),
+    linear-gradient(180deg, #fff8f4 0%, #f8fafc 100%);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: transparent;
+  touch-action: pan-x;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 1rem;
+  border-radius: 9999px;
+  background: #e2e8f0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: -0.125rem;
+  border: 0;
+  border-radius: 9999px;
+  background: #dc2626;
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.12);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 1rem;
+  border: 0;
+  border-radius: 9999px;
+  background: #e2e8f0;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0;
+  border-radius: 9999px;
+  background: #dc2626;
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.12);
+  cursor: pointer;
+}
+
+.cb-float {
+  animation: cbFloat 7s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.cb-fade-up {
+  animation: cbFadeUp 0.85s ease both;
+}
+
+.cb-marquee {
+  animation: cbMarquee 22s linear infinite;
+  display: inline-block;
+  min-width: 200%;
+  padding-left: 100%;
+}
+
+@keyframes cbFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(0, -12px, 0) rotate(0.35deg);
+  }
+}
+
+@keyframes cbFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cbMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cb-float,
+  .cb-fade-up,
+  .cb-marquee {
+    animation: none;
+  }
+}

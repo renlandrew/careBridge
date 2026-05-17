@@ -49,6 +49,7 @@ const content = {
     finish: "Show to Nurse",
     verify: "Verify and Continue",
     save: "Save Updates",
+    backToHome: "Back to Home",
     other: "Other",
     otherPlaceholder: "Type details here",
     history: "Medical History",
@@ -173,6 +174,7 @@ const content = {
     finish: "给护士查看",
     verify: "确认并继续",
     save: "保存更新",
+    backToHome: "返回首页",
     other: "其他",
     otherPlaceholder: "在这里输入详情",
     history: "病史",
@@ -287,6 +289,7 @@ const content = {
     finish: "ਨਰਸ ਨੂੰ ਦਿਖਾਓ",
     verify: "ਪੁਸ਼ਟੀ ਕਰਕੇ ਜਾਰੀ ਰੱਖੋ",
     save: "ਅਪਡੇਟ ਸੰਭਾਲੋ",
+    backToHome: "ਹੋਮ ਤੇ ਵਾਪਸ",
     other: "ਹੋਰ",
     otherPlaceholder: "ਵੇਰਵਾ ਇੱਥੇ ਲਿਖੋ",
     history: "ਮੈਡੀਕਲ ਇਤਿਹਾਸ",
@@ -401,6 +404,7 @@ const content = {
     finish: "Ipakita sa Nars",
     verify: "I-verify at Magpatuloy",
     save: "I-save ang Update",
+    backToHome: "Bumalik sa Home",
     other: "Iba pa",
     otherPlaceholder: "I-type ang detalye dito",
     history: "Kasaysayang Medikal",
@@ -1688,6 +1692,11 @@ function App() {
     setStep("login");
   };
 
+  const returnToLanguageSelect = () => {
+    setLang(null);
+    setStep("language");
+  };
+
   const updateCaseStatus = (caseId, status) => {
     if (!caseId) return;
     setCases((prev) =>
@@ -2010,6 +2019,17 @@ function App() {
 
   const renderIntakeForm = (mode) => (
     <div className="space-y-6">
+      {mode !== "edit" && (
+        <button
+          type="button"
+          onClick={returnToLanguageSelect}
+          className="inline-flex items-center gap-2 rounded-2xl bg-slate-100 px-4 py-3 text-xs font-black uppercase tracking-widest text-slate-600 transition hover:bg-red-50 hover:text-red-600"
+        >
+          <ArrowLeft size={16} />
+          {t.backToHome}
+        </button>
+      )}
+
       <div className="mb-8 text-center">
         <ShieldAlert size={48} className="mx-auto mb-4 text-red-600" />
         <h2 className="text-2xl font-bold">{mode === "edit" ? t.editTitle : t.loginTitle}</h2>
